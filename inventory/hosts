@@ -1,0 +1,26 @@
+server ansible_host=172.16.89.129
+bigIp-a ansible_host=10.1.1.245 bigIp_hostname=bigIp-a.min.local.lab
+bigIp-b ansible_host=10.1.1.246 bigIp_hostname=bigIp-b.min.local.lab
+client ansible_host=172.16.89.129
+
+
+[bigips]
+bigIp-a 
+bigIp-b 
+
+
+[bigips:vars]
+ntp1=192.168.11.168
+ntp2="pool.ntp.org"
+ntp_timezone="America/Chicago"
+
+
+dns1=172.24.1.241
+dns2=172.24.1.242
+
+[master]
+bigIp-b
+
+
+#[localhost]:
+#localhosta ansible_python_interpreter=/bin/python
